@@ -1,6 +1,6 @@
 # REST API Client demo
 
-Simple REST API Client demo using package from pub.dev `rest_api_client`. This app shows a problem where `rest_api_client` fails to initialise on web platform, when the web-server is not 127.0.0.1. It would be great to solve this issue, as the package is otherwise very nice to use. However this problem prevents it from being usable in a production scenario.
+Simple REST API Client demo using package from pub.dev `rest_api_client`. This app shows a problem where `rest_api_client` fails to initialise on web platform, when the web-server is not 127.0.0.1. It would be great to solve this issue, as the package is otherwise very nice to use. However this problem prevents it from being usable in a production web scenario.
 
 ## What works
 
@@ -19,12 +19,15 @@ as evidenced by progress halting at `afterAssign` at <http://192.168.86.23:8001>
 
 In the Chrome Javascript console we see this in the successful case:
 
-```Got object store box in database ___rest_api_client:storage_repository.
-dart_sdk.js:29464 Got object store box in database ___rest_api_client:cached_storage_repository.```
+```dart
+Got object store box in database ___rest_api_client:storage_repository. dart_sdk.js:29464
+Got object store box in database ___rest_api_client:cached_storage_repository.
+```
 
 Whereas in the failed case we see:
 
-```Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'generateKey')
+```dart
+Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'generateKey')
     at _getEncryptionKey (flutter_secure_storage_web.dart.js:120:103)
     at _getEncryptionKey.next (<anonymous>)
     at runBody (dart_sdk.js:40421:34)
@@ -47,14 +50,15 @@ Whereas in the failed case we see:
     at async._AsyncCallbackEntry.new.callback (dart_sdk.js:35917:35)
     at Object._microtaskLoop (dart_sdk.js:40532:13)
     at _startMicrotaskLoop (dart_sdk.js:40538:13)
-    at dart_sdk.js:36272:9```
-
+    at dart_sdk.js:36272:9
+```
 
 ## Environment used
 
 The above results were achieved with this evironment:
 
-```% flutter doctor -v
+```bash
+% flutter doctor -v
 [✓] Flutter (Channel master, 3.6.0-2.0.pre.7, on macOS 12.6 21G115 darwin-arm64, locale en-NZ)
     • Flutter version 3.6.0-2.0.pre.7 on channel master at /Users/richard/development/flutter
     • Upstream repository https://github.com/flutter/flutter.git
@@ -97,8 +101,8 @@ The above results were achieved with this evironment:
 [✓] HTTP Host Availability
     • All required HTTP hosts are available
 
-• No issues found!```
-
+• No issues found!
+```
 
 ## Getting Started
 
